@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <title>Zgjidhja e Detyrave të JavaScript</title>
+    <style>
+        /* Stilizim minimal për t'i bërë elementët më të dukshëm */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .ushtrim {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        h3 {
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Detyrat e Dizajnit dhe Zhvillimit të Uebit</h1>
+    
+    <div class="ushtrim">
+        <h3>Ushtrimi 1</h3>
+        <p id="paragrafiUnik">Teksti i vjetër</p>
+        <p>Ky tekst do të ndryshohet nga JS në: "Përshendetje, studentë!"</p>
+    </div>
+
+    <div class="ushtrim">
+        <h3>Ushtrimi 2</h3>
+        <button id="butoniKuq">Butoni i Bardhë</button>
+        <p>Ky buton do të bëhet me sfond të kuq nga JS.</p>
+    </div>
+
+    <div class="ushtrim">
+        <h3>Ushtrimi 3</h3>
+        <div id="divMeKufi" style="padding: 10px; border: 1px solid black;">
+          Ky është një Div me kufi origjinal 1px solid black.
+        </div>
+        <p>Kufiri i Div-it më sipër do të ndryshojë në 5px dashed blue.</p>
+    </div>
+
+    <div class="ushtrim">
+        <h3>Ushtrimi 4</h3>
+        <h1>Titulli 1 (Vjetër)</h1>
+        <h1>Titulli 2</h1>
+        <h2>Titulli 3</h2>
+        <p>Vetëm Titulli 1 do të ndryshojë tekstin.</p>
+    </div>
+
+    <div class="ushtrim">
+        <h3>Ushtrimi 5</h3>
+        <p class="paragrafiGjelber">Paragrafi A (Klasa 'paragrafiGjelber')</p>
+        <p class="paragrafiGjelber">Paragrafi B (Klasa 'paragrafiGjelber')</p>
+        <p>Ky nuk ndryshon ngjyrë.</p>
+        <p class="paragrafiGjelber">Paragrafi C (Klasa 'paragrafiGjelber')</p>
+        <p>Paragrafët me klasën do të ngjyrosen jeshile.</p>
+    </div>
+
+    <div class="ushtrim">
+        <h3>Ushtrimi 6</h3>
+        <p>Paragrafi i Ushtrimit 6 - 1</p>
+        <p>Paragrafi i Ushtrimit 6 - 2</p>
+        <p>Paragrafi i Ushtrimit 6 - 3</p>
+        <div id="rezultati6"></div> 
+        <p>JS do të llogarisë të gjithë paragrafët në faqe (gjithsej 10).</p>
+    </div>
+    
+    <div class="ushtrim">
+        <h3>Ushtrimi 7</h3>
+        <ul class="item">
+            <li>Elementi i parë i listës</li>
+            <li>Elementi i dytë i listës</li>
+            <li>Elementi i tretë i listës</li>
+            <li>Elementi i katërt i listës</li>
+            <li>Elementi i pestë i listës</li>
+        </ul>
+        <p>Çdo element i listës më sipër do të marrë një ngjyrë tjetër.</p>
+    </div>
+
+    <script>
+        
+        // ----------------------------------------------------------------------
+        // USHTRIMI 1: Ndryshimi i Tekstit (Zgjedhja me ID)
+        // ----------------------------------------------------------------------
+        const paragrafi = document.getElementById('paragrafiUnik');
+        if (paragrafi) {
+            paragrafi.textContent = "Përshendetje, studentë!"; 
+        }
+
+        // ----------------------------------------------------------------------
+        // USHTRIMI 2: Ndryshimi i Sfondit (Zgjedhja me ID)
+        // ----------------------------------------------------------------------
+        const butoni = document.getElementById('butoniKuq');
+        if (butoni) {
+            butoni.style.backgroundColor = 'red';
+            butoni.style.color = 'white'; // Për lexueshmëri
+        }
+
+        // ----------------------------------------------------------------------
+        // USHTRIMI 3: Ndryshimi i Kufirit (Zgjedhja me ID)
+        // ----------------------------------------------------------------------
+        const divi = document.getElementById('divMeKufi');
+        if (divi) {
+            divi.style.border = '5px dashed blue'; 
+        }
+
+        // ----------------------------------------------------------------------
+        // USHTRIMI 4: Ndryshimi i Titullit të Parë (Zgjedhja me QuerySelector)
+        // ----------------------------------------------------------------------
+        const titulliPare = document.querySelector('h1'); 
+        if (titulliPare) {
+            titulliPare.textContent = "Ky është Titulli 1 i Ri, i ndryshuar!";
+        }
+        
+        // ----------------------------------------------------------------------
+        // USHTRIMI 5: Ngjyrosja e Elementëve me Klasë (Zgjedhja me QuerySelectorAll)
+        // ----------------------------------------------------------------------
+        const paragrafetGjelber = document.querySelectorAll('.paragrafiGjelber');
+        paragrafetGjelber.forEach(paragraf => {
+            paragraf.style.color = 'green';
+            paragraf.style.fontWeight = 'bold'; // Për theksim
+        });
+
+        // ----------------------------------------------------------------------
+        // USHTRIMI 6: Llogaritja e Numrit Total (Zgjedhja me QuerySelectorAll dhe Length)
+        // ----------------------------------------------------------------------
+        // Zgjedh të gjithë elementët <p> në faqe
+        const teGjitheParagrafet = document.querySelectorAll('p'); 
+        const numriTotal = teGjitheParagrafet.length; 
+        
+        const rezultatiDiv = document.getElementById('rezultati6');
+        if (rezultatiDiv) {
+            rezultatiDiv.innerHTML = `<strong>Numri total i elementëve &lt;p&gt; në faqe është: ${numriTotal}</strong>`;
+        }
+        
+        // ----------------------------------------------------------------------
+        // USHTRIMI 7: Dhënia e Ngjyrave të Ndryshme Listës (Zgjedhja me Klasë dhe Iterim)
+        // ----------------------------------------------------------------------
+        const listaElementeve = document.querySelectorAll('.item li');
+        const ngjyrat = ['blue', 'red', 'green', 'orange', 'purple'];
+        
+        listaElementeve.forEach((element, index) => {
+            // Përdor operatorin modulo (%) për të cikluar ngjyrat
+            const ngjyra = ngjyrat[index % ngjyrat.length]; 
+            element.style.color = ngjyra;
+            element.style.fontSize = '1.1em'; // Për theksim
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products - ByteHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon" id="logoIcon"></div>
+                    <span class="logo-text">ByteHub</span>
+                </a>
+
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link active">Products</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Categories
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=laptops" class="dropdown-item">Laptops</a>
+                            <a href="products.html?category=phones" class="dropdown-item">Phones</a>
+                            <a href="products.html?category=accessories" class="dropdown-item">Accessories</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="#999" stroke-width="2"/>
+                        <path d="M14 14L18 18" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                </div>
+
+                <div class="header-actions">
+                    <a href="login.html" class="icon-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4 20C4 16 8 14 12 14C16 14 20 16 20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <button class="icon-btn" id="cartBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 3H5L7 16H19L21 7H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="20" r="1" fill="currentColor"/>
+                            <circle cx="17" cy="20" r="1" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Page -->
+    <section class="products-page">
+        <div class="container">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">All Products</h1>
+                    <p class="page-description">Discover our complete collection of premium tech products</p>
+                </div>
+            </div>
+
+            <div class="products-controls">
+                <p class="products-count">Showing 1-16 of 40 products</p>
+                <div class="products-filters">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="laptops">Laptops</option>
+                        <option value="phones">Phones</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn" id="prevPage">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Prev
+                </button>
+                <div class="pagination-numbers">
+                    <button class="pagination-number active">1</button>
+                    <button class="pagination-number">2</button>
+                    <button class="pagination-number">3</button>
+                </div>
+                <button class="pagination-btn" id="nextPage">
+                    Next
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"></div>
+                        <span class="footer-logo-text">ByteHub</span>
+                    </div>
+                    <p class="footer-description">Your trusted destination for premium tech products. We offer the latest laptops, smartphones, and accessories with exceptional service and competitive prices.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Newsletter</h3>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L11 6M15 10L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=laptops">Laptops</a></li>
+                        <li><a href="products.html?category=phones">Smartphones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Follow Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-watermark">BYTEHUB</div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ByteHub. All rights reserved.</p>
+                <p>Powered by Readdy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+</body>
+</html>

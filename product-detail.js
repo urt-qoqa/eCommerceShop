@@ -637,53 +637,8 @@ const allProducts = [
     }
 ];
 
-// Cart
-let cart = JSON.parse(localStorage.getItem('bytehub_cart')) || [];
+// Local quantity state for product detail addition
 let quantity = 1;
-
-function updateCartDisplay() {
-    const cartCount = document.getElementById('cartCount');
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    if (cartCount) {
-        cartCount.textContent = totalItems;
-        cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-        cartCount.style.background = '#dc3545'; // Keep original red badge
-        cartCount.style.color = 'white';
-    }
-}
-
-function addToCart(id, name, price, image) {
-    const existingItem = cart.find(item => item.id === id);
-    if (existingItem) {
-        existingItem.quantity += quantity;
-    } else {
-        cart.push({ id, name, price, image, quantity });
-    }
-    localStorage.setItem('bytehub_cart', JSON.stringify(cart));
-    updateCartDisplay();
-    showNotification(`${quantity}x ${name} added to cart!`, 'success');
-}
-
-function showNotification(message, type) {
-    const existing = document.querySelector('.notification');
-    if (existing) existing.remove();
-
-    const colors = { success: '#28a745', error: '#dc3545' };
-    const notification = document.createElement('div');
-    notification.textContent = message;
-    notification.style.cssText = `
-        position: fixed; top: 20px; right: 20px;
-        background: ${colors[type] || colors.success};
-        color: white; padding: 15px 25px; border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 10000;
-        animation: slideIn 0.3s ease-out; font-weight: 500;
-    `;
-    document.body.appendChild(notification);
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out forwards';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
 
 function changeQuantity(delta) {
     quantity = Math.max(1, quantity + delta);
@@ -734,7 +689,7 @@ function renderProductDetail() {
             </div>
             
             <div class="product-actions">
-                <button class="btn btn-primary" style="flex: 2;" onclick="addToCart(${product.id}, '${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}')">
+                <button class="btn btn-primary" style="flex: 2;" onclick="const qty = parseInt(document.getElementById('quantityValue').textContent); addToCart(${product.id}, '${product.name.replace(/'/g, "\\'")}', ${product.price}, '${product.image}', qty)">
                     Add to Cart
                 </button>
                 <button class="btn btn-secondary" style="flex: 1;" onclick="window.location.href='products.html?category=${product.category}'">
@@ -747,7 +702,6 @@ function renderProductDetail() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartDisplay();
     renderProductDetail();
 });
 

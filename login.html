@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -187,3 +188,208 @@
     <script src="login.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - ByteHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon" id="logoIcon"></div>
+                    <span class="logo-text">ByteHub</span>
+                </a>
+
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Categories
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=laptops" class="dropdown-item">Laptops</a>
+                            <a href="products.html?category=phones" class="dropdown-item">Phones</a>
+                            <a href="products.html?category=accessories" class="dropdown-item">Accessories</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="#999" stroke-width="2" />
+                        <path d="M14 14L18 18" stroke="#999" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <input type="text" placeholder="Search products...">
+                </div>
+
+                <div class="header-actions">
+                    <a href="signup-new.html" class="btn btn-primary"
+                        style="padding: 10px 20px; border-radius: 8px; font-size: 14px; text-decoration: none; color: white;">
+                        Sign Up
+                    </a>
+                    <button class="icon-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 3H5L7 16H19L21 7H7" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="9" cy="20" r="1" fill="currentColor" />
+                            <circle cx="17" cy="20" r="1" fill="currentColor" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-page">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-header">
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your ByteHub account</p>
+                </div>
+
+                <div class="login-card">
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="password-input">
+                                <input type="password" id="password" placeholder="Enter your password" required>
+                                <button type="button" class="toggle-password" id="togglePassword">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path
+                                            d="M10 7C8.34 7 7 8.34 7 10C7 11.66 8.34 13 10 13C11.66 13 13 11.66 13 10C13 8.34 11.66 7 10 7Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                        <path
+                                            d="M10 16C14 16 17.5 13 19 10C17.5 7 14 4 10 4C6 4 2.5 7 1 10C2.5 13 6 16 10 16Z"
+                                            stroke="currentColor" stroke-width="1.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    </form>
+
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button class="social-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path
+                                    d="M19.8 10.2c0-.7-.1-1.4-.2-2H10v3.8h5.5c-.2 1.2-1 2.2-2.1 2.9v2.5h3.4c2-1.8 3-4.5 3-7.2z"
+                                    fill="#4285F4" />
+                                <path
+                                    d="M10 20c2.8 0 5.2-.9 6.9-2.5l-3.4-2.5c-.9.6-2.1 1-3.5 1-2.7 0-5-1.8-5.8-4.3H.7v2.6C2.4 17.8 6 20 10 20z"
+                                    fill="#34A853" />
+                                <path
+                                    d="M4.2 12.2c-.2-.6-.3-1.2-.3-1.9s.1-1.3.3-1.9V5.8H.7C.3 6.9 0 8 0 10s.3 3.1.7 4.2l3.5-2z"
+                                    fill="#FBBC05" />
+                                <path
+                                    d="M10 4c1.5 0 2.9.5 3.9 1.5l2.9-2.9C15.2.8 12.8 0 10 0 6 0 2.4 2.2.7 5.8l3.5 2.7C5 5.8 7.3 4 10 4z"
+                                    fill="#EA4335" />
+                            </svg>
+                            <span>Google</span>
+                        </button>
+
+                    </div>
+                </div>
+
+                <p class="signup-link">
+                    Don't have an account? <a href="signup-new.html">Sign up for free</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"></div>
+                        <span class="footer-logo-text">ByteHub</span>
+                    </div>
+                    <p class="footer-description">Your trusted destination for premium tech products. We offer the
+                        latest laptops, smartphones, and accessories with exceptional service and competitive prices.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Newsletter</h3>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L11 6M15 10L11 14" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=laptops">Laptops</a></li>
+                        <li><a href="products.html?category=phones">Smartphones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Follow Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-watermark">BYTEHUB</div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ByteHub. All rights reserved.</p>
+                <p>Powered by Readdy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
+>>>>>>> 830211d (	new file:   auth-script.js)

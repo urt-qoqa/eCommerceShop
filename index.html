@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -314,3 +315,513 @@
     <script src="script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteHub - Premium Tech Products | Laptops, Phones & Accessories</title>
+    <meta name="description"
+        content="Shop the latest laptops, smartphones, and tech accessories at ByteHub. Discover premium technology products from top brands.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        /* Cart Modal Styles */
+        .cart-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 400px;
+            max-width: 90%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            flex-direction: column;
+        }
+
+        .cart-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .cart-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: #204647;
+            font-weight: bold;
+        }
+
+        .cart-item-remove {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 80px 20px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 998;
+            }
+
+            .nav.active {
+                right: 0;
+            }
+
+            .search-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon" id="logoIcon"></div>
+                    <span class="logo-text">ByteHub</span>
+                </a>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span>☰</span>
+                </button>
+
+                <nav class="nav" id="mainNav">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">
+                            Categories
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=laptops" class="dropdown-item">Laptops</a>
+                            <a href="products.html?category=phones" class="dropdown-item">Phones</a>
+                            <a href="products.html?category=accessories" class="dropdown-item">Accessories</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="search-bar">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="9" cy="9" r="6" stroke="#999" stroke-width="2" />
+                        <path d="M14 14L18 18" stroke="#999" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <input type="text" placeholder="Search products...">
+                </div>
+
+                <div class="header-actions">
+                    <a href="login.html" class="btn btn-primary"
+                        style="padding: 10px 20px; border-radius: 8px; font-size: 14px; text-decoration: none; color: white;">
+                        Sign In
+                    </a>
+                    <button class="icon-btn" id="cartBtn" style="position: relative;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M3 3H5L7 16H19L21 7H7" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="9" cy="20" r="1" fill="currentColor" />
+                            <circle cx="17" cy="20" r="1" fill="currentColor" />
+                        </svg>
+                        <span class="cart-badge" id="cartCount" style="display: none;">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="cart-close" id="cartClose">&times;</button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <div class="cart-empty">
+                <p style="font-size: 48px;">🛒</p>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;"
+                onclick="window.location.href='backend/checkout.php'">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <span class="badge">NEW ARRIVAL 2025</span>
+                    <h1 class="hero-title">
+                        Premium Tech<br>
+                        <span class="hero-accent">For Modern Life</span><br>
+                        Delivered Fast
+                    </h1>
+                    <p class="hero-description">
+                        Discover the latest laptops, smartphones, and accessories from top brands. Experience
+                        cutting-edge technology with exceptional quality and unbeatable prices.
+                    </p>
+                    <a href="products.html" class="btn btn-primary">
+                        Shop Now
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M5 10H15M15 10L11 6M15 10L11 14" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="hero-right">
+                    <div class="stats-card">
+                        <div class="stat">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">50K+</div>
+                            <div class="stat-label">Happy Customers</div>
+                        </div>
+                    </div>
+                    <img src="prod-img/tech-accessories.jpg" alt="Featured Tech Products" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Selling Products -->
+    <section class="products-section">
+        <div class="container">
+            <p class="section-label">FEATURED</p>
+            <h2 class="section-title">Best Selling<br>Products</h2>
+
+            <div class="products-grid">
+                <!-- Product 1 - MacBook Pro -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="prod-img/macbook-pro-16inch-m3-max.webp" alt="MacBook Pro">
+                    </div>
+                    <h3 class="product-title">MacBook Pro 16" M3 Max</h3>
+                    <div class="product-rating">
+                        <div class="stars">★★★★☆</div>
+                        <span class="rating-count">(2847)</span>
+                    </div>
+                    <p class="product-price">$3499.00</p>
+                    <p class="product-description">Powerful laptop with M3 Max chip, 36GB RAM, and stunning Liquid
+                        Retina XDR display for professional workflows.</p>
+                    <button class="btn btn-secondary"
+                        onclick="addToCart(1, 'MacBook Pro 16 M3 Max', 3499, 'https://images.unsplash.com/photo-1517336714731-489689fd1ca4?w=200')">Add
+                        to Cart</button>
+                </div>
+
+                <!-- Product 2 - iPhone -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="prod-img/iphone-15-pro-max.avif" alt="iPhone 15 Pro">
+                    </div>
+                    <h3 class="product-title">iPhone 15 Pro Max</h3>
+                    <div class="product-rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-count">(5621)</span>
+                    </div>
+                    <p class="product-price">$1199.00</p>
+                    <p class="product-description">Latest flagship smartphone with titanium design, A17 Pro chip, and
+                        advanced camera system.</p>
+                    <button class="btn btn-secondary"
+                        onclick="addToCart(2, 'iPhone 15 Pro Max', 1199, 'https://images.unsplash.com/photo-1592286927505-c3b446686dd1?w=200')">Add
+                        to Cart</button>
+                </div>
+
+                <!-- Product 3 - Dell XPS -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="prod-img/dell-xps-15-oled.webp" alt="Dell XPS 15">
+                    </div>
+                    <h3 class="product-title">Dell XPS 15 OLED</h3>
+                    <div class="product-rating">
+                        <div class="stars">★★★★☆</div>
+                        <span class="rating-count">(1834)</span>
+                    </div>
+                    <p class="product-price">$2299.00</p>
+                    <p class="product-description">Premium Windows laptop with stunning 3.5K OLED display and Intel Core
+                        i9 processor.</p>
+                    <button class="btn btn-secondary"
+                        onclick="addToCart(3, 'Dell XPS 15 OLED', 2299, 'https://images.unsplash.com/photo-1593642632823-8f78536788c6?w=200')">Add
+                        to Cart</button>
+                </div>
+
+                <!-- Product 4 - Samsung Galaxy -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="prod-img/samsung-galaxy-s24-ultra.jpg" alt="Samsung Galaxy S24">
+                    </div>
+                    <h3 class="product-title">Samsung Galaxy S24 Ultra</h3>
+                    <div class="product-rating">
+                        <div class="stars">★★★★☆</div>
+                        <span class="rating-count">(4293)</span>
+                    </div>
+                    <p class="product-price">$1299.00</p>
+                    <p class="product-description">Android flagship with S Pen, 200MP camera, and powerful AI features.
+                    </p>
+                    <button class="btn btn-secondary"
+                        onclick="addToCart(4, 'Samsung Galaxy S24 Ultra', 1299, 'https://images.unsplash.com/photo-1610945265078-38584e2690e0?w=200')">Add
+                        to Cart</button>
+                </div>
+
+                <!-- Product 5 - Headphones -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="prod-img/sony-wh-1000xm5.jpg" alt="Sony WH-1000XM5">
+                    </div>
+                    <h3 class="product-title">Sony WH-1000XM5 Headphones</h3>
+                    <div class="product-rating">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-count">(8742)</span>
+                    </div>
+                    <p class="product-price">$399.00</p>
+                    <p class="product-description">Industry-leading noise canceling wireless headphones with 30-hour
+                        battery life.</p>
+                    <button class="btn btn-secondary"
+                        onclick="addToCart(5, 'Sony WH-1000XM5', 399, 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200')">Add
+                        to Cart</button>
+                </div>
+
+                <!-- Product 6 - iPad -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="prod-img/ipad-pro-12.9inch-m2.jpg" alt="iPad Pro">
+                    </div>
+                    <h3 class="product-title">iPad Pro 12.9" M2</h3>
+                    <div class="product-rating">
+                        <div class="stars">★★★★☆</div>
+                        <span class="rating-count">(3156)</span>
+                    </div>
+                    <p class="product-price">$1099.00</p>
+                    <p class="product-description">Ultimate tablet with M2 chip, Liquid Retina XDR display, and Apple
+                        Pencil support.</p>
+                    <button class="btn btn-secondary"
+                        onclick="addToCart(6, 'iPad Pro 12.9 M2', 1099, 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=200')">Add
+                        to Cart</button>
+                </div>
+            </div>
+
+            <div class="view-all">
+                <a href="products.html" class="btn btn-primary">
+                    View All Products
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 10H15M15 10L11 6M15 10L11 14" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title-center">Shop by Category</h2>
+            <p class="section-subtitle">Find exactly what you need</p>
+
+            <div class="categories-grid">
+                <a href="products.html?category=laptops" class="category-card">
+                    <img src="prod-img/macbook-pro-16inch-m3-max.webp" alt="Laptops">
+                    <div class="category-content">
+                        <h3 class="category-title">Laptops</h3>
+                        <p class="category-subtitle">Powerful computing solutions</p>
+                    </div>
+                </a>
+
+                <a href="products.html?category=phones" class="category-card">
+                    <img src="prod-img/iphone-15-pro-max.avif" alt="Phones">
+                    <div class="category-content">
+                        <h3 class="category-title">Phones</h3>
+                        <p class="category-subtitle">Latest flagship smartphones</p>
+                    </div>
+                </a>
+
+                <a href="products.html?category=accessories" class="category-card">
+                    <img src="prod-img/tech-accessories.jpg" alt="Accessories">
+                    <div class="category-content">
+                        <h3 class="category-title">Accessories</h3>
+                        <p class="category-subtitle">Essential tech gear</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon"></div>
+                        <span class="footer-logo-text">ByteHub</span>
+                    </div>
+                    <p class="footer-description">Your trusted destination for premium tech products with exceptional
+                        service and competitive prices.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="products.html?category=laptops">Laptops</a></li>
+                        <li><a href="products.html?category=phones">Smartphones</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-heading">Follow Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 ByteHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index-script.js"></script>
+</body>
+
+</html>
+>>>>>>> 830211d (	new file:   auth-script.js)
